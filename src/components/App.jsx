@@ -27,23 +27,20 @@ export class App extends Component {
     alert(`${name} is already in contacts`);
   }
 
-componentDidMount () {
-  const contact = localStorage.getItem("contacts")
-  const parseContacs = JSON.parse(contact)
+  componentDidMount() {
+    const contact = localStorage.getItem('contacts');
+    const parseContacs = JSON.parse(contact);
 
-  if (parseContacs) {
-    this.setState({contacts: parseContacs})
+    if (parseContacs) {
+      this.setState({ contacts: parseContacs });
+    }
   }
 
-}
-
-
-componentDidUpdate (prevProps,prevState) {
-if (this.state.contacts !== prevState.contacts) {
-  localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
-}
-}
-
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
 
   ChangeFilter = e => {
     this.setState({ filter: e.currentTarget.value });
